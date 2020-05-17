@@ -3,10 +3,13 @@ A little example of hooking a postgres db to a flask webserver, based on docker 
 
 # Setup
 ```bash
+ $ cd flask
  $ python3 -m venv venv
  $ source venv/bin/activate
  (venv) $ pip install -r requirements.txt
  (venv) $ python scripts/create_env.py
+ (venv) $ chmod +x scripts/configure_db.sh
+ (venv) $ ./scripts/configure_db.sh
 ```
 
 
@@ -19,7 +22,7 @@ A little example of hooking a postgres db to a flask webserver, based on docker 
 
 # To Do
  - [x] Get a running flask app
- - [ ] Add sqlite3 functionality
+ - [x] Add sqlite3 functionality
  - [ ] Set up postgres docker container
  - [ ] Get flask to interface with the postgres container
  - [ ] Dockerify flask app

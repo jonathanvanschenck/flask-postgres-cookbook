@@ -1,6 +1,6 @@
 from flask import Flask
-# from flask_sqlalchemy import SQLAlchemy
-# from flask_migrate import Migrate
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
 # Get the configuration object
 from config import Config
@@ -10,9 +10,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Attach DB support
-# db = SQLAlchemy(app)
-# migrate = Migrate(app,db)
+db = SQLAlchemy(app)
+migrate = Migrate(app,db)
 
 
-# Import the app/routes.py file to attach routes
-from app import routes
+# Import relevent file to attach routes and db models
+from app import routes, models
