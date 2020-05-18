@@ -1,0 +1,24 @@
+version: '3.7'
+
+services:
+
+  db:
+    build: ./postgres
+    container_name: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "54320:5432"
+    # usually, you use the form:
+    #environment:
+    #  - VALUE:value
+    # to set an environment variable, but for some reason with postgres users,
+    # you NEED to do it this way: (not sure why. . .)
+    environment:
+      POSTGRES_USER: flask_user
+      POSTGRES_PASSWORD: guess_me
+      POSTGRES_DB: flask_db
+
+volumes:
+  postgres_data:
