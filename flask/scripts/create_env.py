@@ -2,7 +2,8 @@ import uuid
 
 config = {
     "FLASK_APP":"wsgi.py",
-    "DATABASE_URL":"postgresql://flask_user:guess_me@localhost:54320/flask_db"
+    #                               user      pswd     host   port  db_name
+    "DATABASE_URL":"postgresql://flask_user:guess_me@postgres:5432/flask_db"
 }
 
 with open(".env","w") as f:

@@ -1,15 +1,25 @@
 version: '3.7'
 
 services:
+  flask:
+    build: ./flask
+    container_name: flask
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
 
-  db:
+  postgres:
     build: ./postgres
     container_name: postgres
     restart: always
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    ports:
-      - "54320:5432"
+    # Should be port if the local machine needs to get at it,
+    #  but should be expose if the flask container needs to get at it.
+    expose:
+      - "5432"
     # usually, you use the form:
     #environment:
     #  - VALUE:value
